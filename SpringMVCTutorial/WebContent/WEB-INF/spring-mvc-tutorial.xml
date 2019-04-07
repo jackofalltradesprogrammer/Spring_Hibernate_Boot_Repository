@@ -10,18 +10,25 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd
         http://www.springframework.org/schema/context 
         http://www.springframework.org/schema/context/spring-context.xsd">
- 
+
 	<mvc:annotation-driven />
 	<context:component-scan
 		base-package="com.luv2code.springdemo" />
 	<mvc:default-servlet-handler />
- 
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 
-<property value="/WEB-INF/view/" name="prefix"/>
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 
-<property value=".jsp" name="suffix"/>
+		<property value="/WEB-INF/view/" name="prefix" />
 
-</bean>
- 
+		<property value=".jsp" name="suffix" />
+
+	</bean>
+	
+	<!-- Load Custom message resources -->
+	<bean id="messageSource"
+		class="org.springframework.context.support.ResourceBundleMessageSource">
+		<property name="basenames" value="resources/messages"/>
+	</bean>
+
 </beans>
