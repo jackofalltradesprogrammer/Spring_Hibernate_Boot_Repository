@@ -34,11 +34,14 @@ public class InstructorDetail {
 
 	@Column(name = "hobby")
 	private String hobby;
-	
+
 	// using this hibernate will go to Instructor class and
-	// search for "instructorDetail" property and then try to figure out the relationship
+	// search for "instructorDetail" property and then try to figure out the
+	// relationship
 	// CascadeType.All transfers the action to the object in the relationship
-	@OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
+	@OneToOne(mappedBy = "instructorDetail",
+			cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
+			CascadeType.REFRESH })
 	private Instructor instructor;
 
 	public InstructorDetail() {
