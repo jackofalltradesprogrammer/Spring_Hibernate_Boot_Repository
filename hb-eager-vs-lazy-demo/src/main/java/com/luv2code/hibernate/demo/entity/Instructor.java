@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -41,8 +42,8 @@ public class Instructor {
 
 	// mappedBy tells hibernate to go "Course" class and check "instructor" property
 	// to determine the relationship between the two
-	@OneToMany(mappedBy = "instructor", cascade = { CascadeType.DETACH, CascadeType.MERGE, CascadeType.PERSIST,
-			CascadeType.REFRESH })
+	@OneToMany(fetch = FetchType.LAZY, mappedBy = "instructor", cascade = { CascadeType.DETACH, CascadeType.MERGE,
+			CascadeType.PERSIST, CascadeType.REFRESH })
 	private List<Course> courses;
 
 	public Instructor() {
@@ -102,7 +103,7 @@ public class Instructor {
 	public void setCourses(List<Course> courses) {
 		this.courses = courses;
 	}
-	
+
 	// add convenience methods for bi-directional relationship
 	// need to initialize courses
 	public void add(Course tempCourse) {

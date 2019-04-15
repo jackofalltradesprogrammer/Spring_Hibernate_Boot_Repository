@@ -32,8 +32,10 @@ public class EagerLazyDemo {
 			// get courses for the instructor,
 			// As there are persistent object already have the courses in the list as defined in Instructor class
 			// Hibernate automatically fetches them
-			System.out.println("Courses: " + tempInstructor.getCourses());
+			
 			session.getTransaction().commit();
+			session.close();
+			System.out.println("Courses: " + tempInstructor.getCourses());
 			System.out.println("Done!");
 		} catch (Exception e) {
 			System.out.println(e);
