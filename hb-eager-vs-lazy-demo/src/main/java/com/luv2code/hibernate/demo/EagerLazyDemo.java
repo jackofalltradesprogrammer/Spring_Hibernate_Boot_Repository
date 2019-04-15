@@ -29,11 +29,11 @@ public class EagerLazyDemo {
 			Instructor tempInstructor = session.get(Instructor.class, theId);
 			System.out.println("Instructor: " + tempInstructor);
 			
-			// get courses for the instructor,
-			// As there are persistent object already have the courses in the list as defined in Instructor class
-			// Hibernate automatically fetches them
+			// We are calling this method as to avoid error with Lazy Loading when the session is closed
+			System.out.println("Courses: " + tempInstructor.getCourses());
 			
 			session.getTransaction().commit();
+			System.out.println("\n\n we are closing the session!!");
 			session.close();
 			System.out.println("Courses: " + tempInstructor.getCourses());
 			System.out.println("Done!");
