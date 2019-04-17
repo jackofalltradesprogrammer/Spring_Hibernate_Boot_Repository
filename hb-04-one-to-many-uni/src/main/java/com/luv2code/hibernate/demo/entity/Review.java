@@ -24,8 +24,7 @@ public class Review {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Review(int id, String comment) {
-		this.id = id;
+	public Review(String comment) {
 		this.comment = comment;
 	}
 
