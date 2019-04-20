@@ -9,11 +9,14 @@ import org.springframework.stereotype.Component;
 public class MyDemoLoggingAspect {
 	
 	// this is where we add all of our related advice for logging
-	
 	// let's start with a @Before advice
 	// here we are using pointCut Expressions where we match any method with the below signature
-//	@Before("execution(public void add*())")
-	@Before("execution(* add*())")
+	
+	// PointCut expression with parameter pattern and '..' for any number of arguments
+//	@Before("execution(* add*(com.luv2code.aopdemo.Account, ..))")
+//	@Before("execution(* add*(..))")
+	// this matches with the given package name - any call, any method, any number of parameters
+	@Before("execution(* com.luv2code.aopdemo.dao.*.*(..))")
 	public void beforeAddAccountAdvice() {
 		System.out.println("\n=====>>> Executing @Before advice on method()");
 	}
