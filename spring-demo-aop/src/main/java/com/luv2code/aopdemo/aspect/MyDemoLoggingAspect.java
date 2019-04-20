@@ -12,14 +12,11 @@ public class MyDemoLoggingAspect {
 	
 	// let's start with a @Before advice
 	// here we are using pointCut Expressions where we match any method with the below signature
-	@Before("execution(public void com.luv2code.aopdemo.dao.AccountDAO.addAccount())")
+//	@Before("execution(public void add*())")
+	@Before("execution(* add*())")
 	public void beforeAddAccountAdvice() {
 		System.out.println("\n=====>>> Executing @Before advice on method()");
 	}
 	
-	// this matches with any method that starts with add
-	@Before("execution(public void add*())")
-	public void beforeAccountAdvice() {
-		System.out.println("\n ******* Executing using wildCard @Before advice on method()");
-	}
+	
 }
