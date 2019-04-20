@@ -14,7 +14,7 @@ public class MainDemoApp {
 		// get the bean from spring container
 		AccountDAO theAccountDAO = context.getBean("accountDAO", AccountDAO.class);
 		
-		// call the business method
+		// call the business method on which we setup a @Before advice
 		theAccountDAO.addAccount();
 		
 		// close the context
