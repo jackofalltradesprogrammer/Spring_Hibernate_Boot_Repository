@@ -18,7 +18,8 @@ public class MainDemoApp {
 		
 		// call the business method on which we setup a @Before advice
 		theAccountDAO.addAccount();
-		theMembershipDAO.addAccount();
+//		theMembershipDAO.addAccount();
+		theMembershipDAO.addSillyMember();
 		
 		// close the context
 		context.close();
