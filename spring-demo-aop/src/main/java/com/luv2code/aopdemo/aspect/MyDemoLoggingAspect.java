@@ -11,8 +11,9 @@ public class MyDemoLoggingAspect {
 	// this is where we add all of our related advice for logging
 	
 	// let's start with a @Before advice
+	// here we are using pointCut Expressions where we match any method with the below signature
 	@Before("execution(public void addAccount())")
 	public void beforeAddAccountAdvice() {
-		System.out.println("\n=====>>> Executing @Before advice on addAccount()");
+		System.out.println("\n=====>>> Executing @Before advice on method()");
 	}
 }
