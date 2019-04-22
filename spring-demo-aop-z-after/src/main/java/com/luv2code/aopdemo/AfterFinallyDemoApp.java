@@ -20,7 +20,7 @@ public class AfterFinallyDemoApp {
 		List<Account> theAccounts = null;
 		try {
 			// add a boolean flag to simulate exceptions
-			boolean tripwire = true;
+			boolean tripwire = false;
 			theAccounts = theAccountDAO.findAccounts(tripwire);
 		} catch (Exception exc) {
 			// TODO Auto-generated catch block
