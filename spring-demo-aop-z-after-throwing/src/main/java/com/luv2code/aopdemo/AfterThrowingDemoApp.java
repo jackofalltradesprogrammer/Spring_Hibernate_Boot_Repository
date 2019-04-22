@@ -17,7 +17,15 @@ public class AfterThrowingDemoApp {
 		// get the bean from spring container
 		AccountDAO theAccountDAO = context.getBean("accountDAO", AccountDAO.class);
 		
-		List<Account> theAccounts = theAccountDAO.findAccounts();
+		List<Account> theAccounts = null;
+		try {
+			// add a boolean flag to simulate exceptions
+			boolean tripwire = true;
+			theAccounts = theAccountDAO.findAccounts(tripwire);
+		} catch (Exception exc) {
+			// TODO Auto-generated catch block
+			System.out.println("\n\n Main Program.... " + exc);
+		}
 		System.out.println(theAccounts);
 		
 		// close the context

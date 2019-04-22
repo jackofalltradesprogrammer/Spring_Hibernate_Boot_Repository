@@ -43,7 +43,10 @@ public class AccountDAO {
 		return true;
 	}
 	
-	public List<Account> findAccounts() {
+	public List<Account> findAccounts(boolean tripwire) {
+		if (tripwire) {
+			throw new RuntimeException("No soup for you");
+		}
 		List<Account> myAccounts = new ArrayList<Account>();
 		// create sample accounts
 		Account temp1 = new Account("John", "Silver");
