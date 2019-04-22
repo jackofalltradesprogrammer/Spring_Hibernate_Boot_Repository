@@ -18,6 +18,8 @@ public class MainDemoApp {
 		
 		// call the business method on which we setup a @Before advice
 		Account myAccount = new Account();
+		myAccount.setName("Madhu");
+		myAccount.setLevel("Platinum");
 		theAccountDAO.addAccount(myAccount, true);
 		theAccountDAO.doWork();
 		
