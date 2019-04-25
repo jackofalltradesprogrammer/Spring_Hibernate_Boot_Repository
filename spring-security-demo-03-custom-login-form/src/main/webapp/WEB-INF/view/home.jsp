@@ -14,9 +14,19 @@
 	<p>Welcome to the Home Page</p>
 	<hr>
 		<!-- display user name and role -->
-		User: <security:authentication property="principal.username"/>
-		<br><br>
-		Role(s): <security:authentication property="principal.authorities"/>
+		<p>
+			User: <security:authentication property="principal.username"/>
+			<br><br>
+			Role(s): <security:authentication property="principal.authorities"/>
+		</p>
+		
+		<hr>
+		<!--  Add a link to point to /leaders ... this is for the managers -->
+		<p>
+			<a href="${pageContext.request.contextPath}/leaders">LeaderShip Meeting</a>
+			(Only for Manager peeps)
+		</p>
+		<hr>
 	<hr>
 
 	<!-- Add a logout button -->
