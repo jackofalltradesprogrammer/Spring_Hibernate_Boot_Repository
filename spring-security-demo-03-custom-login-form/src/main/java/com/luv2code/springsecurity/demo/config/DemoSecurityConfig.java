@@ -27,7 +27,11 @@ public class DemoSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		// Configuration for the Custom login page
-		http.authorizeRequests().anyRequest().authenticated()
+		http.authorizeRequests()
+			.antMatchers("/").hasAnyRole("EMPLOYEE")
+			.antMatchers("/leaders").hasAnyRole("MANAGER")
+			.antMatchers("/systems/**").hasAnyRole("ADMIN")
+		//.anyRequest().authenticated()
 			.and()
 			.formLogin()
 				.loginPage("/showMyLoginPage")
