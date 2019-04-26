@@ -73,7 +73,7 @@ public class DemoAppConfig {
 		securityDataSource.setMaxPoolSize(getintPropery("connection.pool.maxPoolSize"));
 		securityDataSource.setMaxIdleTime(getintPropery("connection.pool.maxIdleTime"));
 		
-		return securityDataSource();
+		return securityDataSource;
 	}
 	
 	// need a helper method
